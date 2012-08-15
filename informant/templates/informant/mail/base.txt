@@ -1,0 +1,7 @@
+Pokud se Vám nezobrazuje tento e-mail správně, pokračujte zde:
+{{ newsletter.get_absolute_url }}?utm_source=newsletter&utm_medium=email&utm_campaign={{ newsletter.subject|slugify }}
+
+Pokud nám chcete napsat, pište nám na adresu redakce@investicniweb.cz
+
+Jste přihlášeni k odebírání informací o novinkách, pokud si tyto zprávy nepřejete nadále dostávat, odhlašte se pomocí odkazu:
+http://{{ site.domain }}{% url unsubscrible-news recipient.md5 %}?utm_source=newsletter&utm_medium=email&utm_campaign={{ newsletter.subject|slugify }}
