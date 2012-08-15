@@ -2,16 +2,15 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 from django.http import HttpResponse, Http404, HttpResponseRedirect, \
     HttpResponseForbidden
-from django.shortcuts import render_to_response, render, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.template import Template, Context
-from django.template.context import RequestContext
 
 
 from informant.models import Recipient, Newsletter
 from informant.forms import SubscribleNewsForm
 
 
-def subscrible(request):
+def subscribe(request):
     if request.method == 'POST':
         f = SubscribleNewsForm(request.POST)
 
@@ -40,18 +39,19 @@ def subscrible(request):
                 return render(
                     request,
                     'informant/management/subscribe_ok.html',
-                    {'subscrible_email': r.email})
+                    {'subscribe_email': r.email})
         else:
             url = request.POST.get('back_url', '/')
             email = request.POST.get('email', '@')
             return render(
                 request,
                 'informant/management/subscribe_error.html',
-                {'back_url': url, 'subscrible_email': email})
+                {'back_url': url, 'subscribe_email': email},
+                status=400)
     raise Http404
 
 
-def unsubscrible(request, recipient_hash):
+def unsubscribe(request, recipient_hash):
     try:
         r = Recipient.objects.get(md5=recipient_hash, deleted=False)
     except:
@@ -61,7 +61,9 @@ def unsubscrible(request, recipient_hash):
     r.deleted = True
     r.save()
 
-    return HttpResponseRedirect('/')
+    return render(request,
+                  'informant/management/unsubscribed.html',
+                  {'recipient': r})
 
 
 def preview(request, pk):

@@ -1,3 +1,2 @@
-<p class="info-reg-ok">
-    Děkujeme, že jste se přihlásil/a k odběru našeho bulletinu s Vaší e-mailovou adresou: <strong style="font-weight: bold;">{{ subscrible_email }}</strong>.
-</p>
+{% load i18n %}
+<p>{% blocktrans with subscribe_email as email %}Thanks for subscription to our newsletter for your e-mail address <strong>{{ email }}</strong>.{% endblocktrans %}</p>

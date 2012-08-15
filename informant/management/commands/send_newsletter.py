@@ -13,6 +13,9 @@ from django.utils import translation
 from informant.models import Recipient, Newsletter
 
 
+NEWSLETTER_EMAIL = settings.NEWSLETTER_EMAIL
+
+
 class Command(NoArgsCommand):
     help = "Send undelivered recipes newsletters"
 
@@ -55,7 +58,7 @@ class Command(NoArgsCommand):
                 msg = EmailMultiAlternatives(
                     newsletter.subject,
                     content_txt,
-                    settings.NEWSLETTER_EMAIL,
+                    NEWSLETTER_EMAIL,
                     (recipient.email,)
                 )
                 msg.attach_alternative(content_html, 'text/html')
