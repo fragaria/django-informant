@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from informant import __version__
 
 setup(
-    name='informant',
+    name='django-informant',
     description="Simple newsletter application for Django framework.",
     version=__version__,
 

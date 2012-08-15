@@ -10,7 +10,7 @@ Installation
 
 Standard Django way::
     
-    pip install informant
+    pip install django-informant
     
 Add to your ``INSTALLED_APPS``::
 
