@@ -1,7 +1,5 @@
-Pokud se Vám nezobrazuje tento e-mail správně, pokračujte zde:
+{% blocktrans %}If you cannot see this e-mail correctly, please continue here:{% endblocktrans %}
 {{ newsletter.get_absolute_url }}?utm_source=newsletter&utm_medium=email&utm_campaign={{ newsletter.subject|slugify }}
 
-Pokud nám chcete napsat, pište nám na adresu redakce@investicniweb.cz
-
-Jste přihlášeni k odebírání informací o novinkách, pokud si tyto zprávy nepřejete nadále dostávat, odhlašte se pomocí odkazu:
-http://{{ site.domain }}{% url unsubscrible-news recipient.md5 %}?utm_source=newsletter&utm_medium=email&utm_campaign={{ newsletter.subject|slugify }}
+{% trans "You are subscribed to our newsletter, if you do not wish to receive these information anymore, click on the unsubscribe link below:" %}
+http://{{ site.domain }}{% url informant_unsubscribe recipient.md5 %}?utm_source=newsletter&utm_medium=email&utm_campaign={{ newsletter.subject|slugify }}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 12:31+0200\n"
+"POT-Creation-Date: 2012-08-15 12:45+0200\n"
 "PO-Revision-Date: 2009-02-06 10:50+0100\n"
 "Last-Translator: Jan Seifert <jan.seifert@centrumholdings.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,4 +84,18 @@ msgstr "odhlášení"
 #: urls.py:12
 msgid "preview"
 msgstr "náhled"
+
+#: templates/informant/mail/base.html:3
+msgid "lang"
+msgstr "cs"
+
+#: templates/informant/mail/base.txt:1
+msgid "If you cannot see this e-mail correctly, please continue here:"
+msgstr "Pokud se Vám tento e-mail nezobrazuje správně, prosím pokračujte zde:"
+
+#: templates/informant/mail/base.txt:4
+msgid ""
+"You are subscribed to our newsletter, if you do not wish to receive these "
+"information anymore, click on the unsubscribe link below:"
+msgstr "Jste přihlášen k odběru novinek z našeho webu, pokud si nepřejete nadále tyto novinky dostávat, klikněte na odkaz níže:"
 
