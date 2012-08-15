@@ -41,7 +41,7 @@ class Command(NoArgsCommand):
             })
             # Render parts
             content_html_orig = Template(newsletter.content).render(c)
-            content_txt_orig = render_to_string('newsletters/mail/body/base.txt', c)
+            content_txt_orig = render_to_string('informant/mail/base.txt', c)
 
             # Recipients, who have not got newsletter
             recipients = Recipient.objects.filter(sent=False, deleted=False)
