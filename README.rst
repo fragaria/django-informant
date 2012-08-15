@@ -44,6 +44,45 @@ Informant uses newsletter text as Django template. It's therefore usefull
 to create basic blocks in ``informant/mail/newsletter.html`` and then
 only override them in the administration.
 
+Ajax subscription
+*****************
+
+If you don't want separate page with subscription form, Informant has a 
+jQuery plugin which will take care.
+
+It is called on the ``<form>`` elements. It expects that form has correctly
+set up the action attribute pointing to the right URL. See example::
+
+    // JavaScript handler
+    var subscribeForm = $('#newsletterSubscribeForm'); 
+    subscribeForm.informantSubscribeForm({
+        renderResults: true,
+        resultContainer: $('#newsletterSubscribeResult')
+    });
+    subscribeForm.bind('informantSubscribeOk', function () {
+       $(this).find('input').hide(); 
+    });
+
+    <!-- in your template -->
+    <form id="newsletterSubscribeForm" action="{% url "informant_subscribe" %}" method="post">
+        <div>
+            <label for="email">Enter your e-mail:</label>
+            <div id="newsletterSubscribeResult"></div>
+            {% csrf_token %}
+            <input type="email" name="email" />
+            <input type="hidden" name="surname" value="" />
+        </div>
+        <div>
+            <input type="submit" value="Subscribe" class="button" />
+        </div>
+    </form>
+
+The Javascript plugin by default doesn't render any results. If you want 
+it to, supply configuration as seen above. Plugin will fire ``informantSubscribeOk``
+and ``informantSubscribeError`` events in case of successfull or invalid 
+subscription respectively. You can bind to these using jQuery's ``.bind()``
+method.
+
 Sending
 *******
 
