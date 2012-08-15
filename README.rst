@@ -45,7 +45,7 @@ to create basic blocks in ``informant/mail/newsletter.html`` and then extend
 from it in the newsletter administration and override only specific block
 like you would do in real templates. E.g.:
 
-**In ``informant/mail/newsletter.html``::
+**In ``informant/mail/newsletter.html``**::
 
     {% load i18n %}
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
