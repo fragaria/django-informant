@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 12:45+0200\n"
+"POT-Creation-Date: 2012-08-20 16:46+0200\n"
 "PO-Revision-Date: 2009-02-06 10:50+0100\n"
 "Last-Translator: Jan Seifert <jan.seifert@centrumholdings.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:21
+msgid "Send again"
+msgstr "Poslat znovu"
 
 #: models.py:11
 msgid "Subject"
@@ -28,8 +32,7 @@ msgstr "Obsah"
 msgid "Date"
 msgstr "Datum zveřejnění"
 
-#: models.py:14
-#: models.py:44
+#: models.py:14 models.py:44
 msgid "Sent"
 msgstr "Odesláno"
 
@@ -97,5 +100,32 @@ msgstr "Pokud se Vám tento e-mail nezobrazuje správně, prosím pokračujte zd
 msgid ""
 "You are subscribed to our newsletter, if you do not wish to receive these "
 "information anymore, click on the unsubscribe link below:"
-msgstr "Jste přihlášen k odběru novinek z našeho webu, pokud si nepřejete nadále tyto novinky dostávat, klikněte na odkaz níže:"
+msgstr ""
+"Jste přihlášen k odběru novinek z našeho webu, pokud si nepřejete nadále "
+"tyto novinky dostávat, klikněte na odkaz níže:"
 
+#: templates/informant/management/subscribe_error.html:2
+msgid ""
+"Subscription to newsletter failed! Please check if the address is correct "
+"and try again."
+msgstr ""
+"Přihlášení k newsletteru se nezdařilo! Prosím zkontrolujte, zdali je zadaná "
+"adresa platná a zkuste to znovu."
+
+#: templates/informant/management/subscribe_ok.html:2
+#, python-format
+msgid ""
+"Thanks for subscription to our newsletter for your e-mail address <strong>"
+"%(email)s</strong>."
+msgstr ""
+"Děkujeme za přihlášení do newsletteru vaší e-mailové adresy <strong>"
+"%(email)s</strong>."
+
+#: templates/informant/management/unsubscribed.html:2
+#, python-format
+msgid ""
+"Your e-mail address <strong>%(email)s</strong> have been removed from our "
+"newsletter contact database."
+msgstr ""
+"Vaše e-mailová adresa <strong>%(email)s</strong> byla odebrána z našeho "
+"seznamu kontaktů."
