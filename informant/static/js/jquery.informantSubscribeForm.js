@@ -1,9 +1,10 @@
 $.fn.informantSubscribeForm = function (options) {
     var settings = $.extend({
         renderResults: false,
-        resultContainer: null
+        resultContainer: null,
+        validate: function (form, evt) { return true; }
     }, options);
-
+    
     this.each(function () {
         var self = $(this);
         
@@ -14,20 +15,24 @@ $.fn.informantSubscribeForm = function (options) {
         };
         
         self.submit(function (evt) {
-            evt.preventDefault();
-            $.post($(this).attr('action'), $(this).serialize(), function () {}, 'html')
-                .success(function (response) {
-                    renderResults(response);
-                    self.trigger('informantSubscribeOk', response.responseText);
-                })
-                .error(function (response) {
-                    if (response.status != 400)
-                        renderResults(response.statusText);
-                    else
-                        renderResults(response.responseText);
-                    
-                    self.trigger('informantSubscribeError', response.responseText);
-                });
+            if (settings.validate($(this), evt)) {
+                evt.preventDefault();
+                
+                $.post($(this).attr('action'), $(this).serialize(), function () {}, 'html')
+                    .success(function (response) {
+                        renderResults(response);
+                        self.trigger('informantSubscribeOk', response.responseText);
+                    })
+                    .error(function (response) {
+                        if (response.status != 400)
+                            renderResults(response.statusText);
+                        else
+                            renderResults(response.responseText);
+                        
+                        self.trigger('informantSubscribeError', response.responseText);
+                    });
+            }
+            
             return false;
         });
     });
